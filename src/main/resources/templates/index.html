@@ -5,10 +5,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}" />
+    <style>
+        body {
+            background-color: #f6e2a1;
+            font-family: "Microsoft YaHei UI";
+        }
+        h1{
+            color: darkblue;
+        }
+        .main-div{
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .btn-logout{
+
+            margin-left:90%;
+
+            background-color: #df3f3f;
+            color: white;
+
+        }
+        .container {
+            background-color: #f6e2a1;
+            padding: 20px;
+        }
+        .btn-outline-danger {
+            border-color: #dc3545;
+            color: #dc3545;
+        }
+        .btn-outline-danger:hover {
+            background-color: #dc3545;
+            color: #fff;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .alert-warning {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .table-a{
+
+            border-radius: 100px;
+        }
+    </style>
+
+
 </head>
 <body>
 <div class="container">
-    <h1>Spring Boot 3.0.0 Todo Application</h1>
+    <div class="main-div">
+
+        <div>
+            <h1>KaamKaaj</h1>
+            <h6><i> Stay on track ....</i></h6>
+        </div>
+
+
+
+        <!-- Logout button form -->
+        <form th:action="@{/logout}" method="post" class="mb-4">
+            <button type="submit" class="btn-logout btn ">
+                Logout
+
+            </button>
+
+        </form>
+
+    </div>
+
     <hr />
 
     <table class="table table-bordered table-striped">
@@ -20,6 +89,7 @@
             <th>Is Complete</th>
             <th>Created At</th>
             <th>Updated At</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -28,8 +98,7 @@
                 <div class="btn btn-group-sm" role="group">
                     <a class="btn btn-info" th:href="@{/edit/{id}(id=${item.id})}">
                         <i class="bi bi-pencil-fill"></i> Edit</a>
-                    <a class="btn btn-danger" th:href="@{/delete/{id}(id=${item.id})}">
-                        <i class="bi bi-trash-fill"></i> Delete</a>
+
                 </div>
             </td>
             <td th:text="${item.id}"></td>
@@ -40,6 +109,11 @@
             </td>
             <td th:text="${item.createdAt}"></td>
             <td th:text="${item.updatedAt}"></td>
+            <td>
+
+                <a class="btn btn-danger" th:href="@{/delete/{id}(id=${item.id})}">
+                    <i class="bi bi-trash-fill"></i> Delete</a>
+            </td>
         </tr>
         </tbody>
     </table>
