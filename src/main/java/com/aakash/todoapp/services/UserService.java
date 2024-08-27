@@ -15,6 +15,10 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private MailService mailService;
+    
+
     private final PasswordEncoder passwordEncoder;
 
     public UserService(PasswordEncoder passwordEncoder) {
@@ -29,7 +33,20 @@ public class UserService {
         user.setName(name); // Set name
         user.setEmail(email); // Set email
         user.setPassword(passwordEncoder.encode(password)); // Hash password
-        return userRepository.save(user);
+        
+
+        User savedUser = userRepository.save(user);
+
+        // Send registration email
+        mailService.sendRegistrationEmail(user.getEmail(), user.getName());
+
+        return savedUser;
+
+
+
+
+
+        
     }
 
     public User authenticateUser(String email, String password) {
