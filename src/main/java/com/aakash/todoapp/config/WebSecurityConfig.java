@@ -71,7 +71,7 @@ public class WebSecurityConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://ellitefocus-frontend-nmyyeacuj-21aakashs-projects.vercel.app","https://ellitefocus-backend-production.up.railway.app") // Adjust this to your frontend URL
+                        .allowedOrigins("https://ellitefocus-frontend.vercel.app","https://ellitefocus-backend-production.up.railway.app") // Adjust this to your frontend URL
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
