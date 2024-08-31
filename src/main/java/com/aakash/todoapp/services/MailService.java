@@ -31,7 +31,7 @@ public class MailService {
                     + "<p>Dear " + username + ",</p>"
                     + "<p>Thank you for registering with ElliteFocus, your ultimate task-tracking solution powered by Valuebound. We're excited to have you on board and are committed to helping you streamline your tasks and boost productivity.</p>"
                     + "<p>To get started, please log in to your account using the link below:</p>"
-                    + "<a href='https://ellitefocus-frontend-nmyyeacuj-21aakashs-projects.vercel.app'>Login to ElliteFocus</a>"
+                    + "<a href='https://ellitefocus-frontend.vercel.app/login'>Login to ElliteFocus</a>"
                     + "<p>If you have any questions or need support, feel free to reach out to us anytime.</p>"
                     + "<p>Best regards,<br>"
                     + "Team ElliteFocus<br>"
